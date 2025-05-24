@@ -20,7 +20,7 @@ services:
     image: mysql:8
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: alhuda2805
+      MYSQL_ROOT_PASSWORD: 12345
       MYSQL_DATABASE: gojo_db
     volumes:
       - db_data:/var/lib/mysql

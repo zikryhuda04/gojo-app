@@ -4,16 +4,27 @@ services:
   web:
     build: .
     ports:
-      - "8080:80"  # ← kembali ke 8080
+      - "8080:80"               # Port 8080 di host diarahkan ke port 80 di container web
     volumes:
-      - .:/var/www/html
+      - .:/var/www/html         # Mount folder kerja ke dalam container agar live update
     depends_on:
       - db
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: gojo_db
 
   db:
     image: mysql:5.7
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: gojo_db
     ports:
-      - "3307:3306"  # hindari bentrok dengan MySQL lokal
+      - "3307:3306"             # Hindari bentrok dengan MySQL lokal di host
+    volumes:
+      - db_data:/var/lib/mysql  # Agar data MySQL persistent
+
+volumes:
+  db_data:

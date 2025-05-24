@@ -1,8 +1,8 @@
 <?php
-$servername = 'db'; // gunakan nama service database dari docker-compose
-$username = 'root';
-$password = 'root'; // sesuai docker-compose
-$dbname = 'gojo_db';
+$servername = getenv('DB_HOST') ?: 'db';       // Nama service db di docker-compose
+$username   = getenv('DB_USER') ?: 'root';
+$password   = getenv('DB_PASSWORD') ?: 'root'; // Sesuaikan dengan MYSQL_ROOT_PASSWORD
+$dbname     = getenv('DB_NAME') ?: 'gojo_db';
 
 $koneksi = new mysqli($servername, $username, $password, $dbname);
 

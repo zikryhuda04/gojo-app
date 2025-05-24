@@ -1,0 +1,15 @@
+image: atlassian/default-image:3
+
+pipelines:
+  default:
+    - step:
+        name: Build and Test Gojo App
+        caches:
+          - docker
+        script:
+          - echo "Mulai pipeline CI/CD Gojo"
+          - docker --version
+          - docker-compose --version
+          - docker-compose up -d
+          - docker ps
+          - echo "Testing selesai, aplikasi Gojo berjalan"

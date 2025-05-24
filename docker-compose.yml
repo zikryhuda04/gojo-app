@@ -1,38 +1,18 @@
-version: '3.8'
-
 services:
-  web:
-    image: jiklii/gojo-app:latest
-    services:
   web:
     build: .
     ports:
-      - "8082:80"  # ganti 8080 ke 8082
-  db:
-    image: mysql:5.7
-    ports:
-      - "3308:3306"  # ganti 3306 ke 3308
-
-
+      - "8082:80"  # ubah port host jadi 8082
+    volumes:
+      - .:/var/www/html
     depends_on:
       - db
-    environment:
-      - DB_HOST=db
-      - DB_USER=root
-      - DB_PASSWORD=yourpassword
-      - DB_NAME=gojo_db
-    volumes:
-      - ./:/var/www/html
-    restart: always
 
   db:
-    image: mysql:8
+    image: mysql:5.7
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: gojo_db
-    volumes:
-      - db_data:/var/lib/mysql
-
-volumes:
-  db_data:
+    ports:
+      - "3307:3306"  # ubah port host jadi 3307

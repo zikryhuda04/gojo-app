@@ -1,11 +1,10 @@
 <?php
-$servername = getenv('DB_HOST') ?: 'db'; // nama service di docker-compose
-$username   = getenv('DB_USER') ?: 'root';
-$password   = getenv('DB_PASSWORD') ?: 'root'; // sesuaikan dengan environment di docker-compose
-$dbname     = getenv('DB_NAME') ?: 'gojo_db';
-$port       = getenv('DB_PORT') ?: 3306; // tambahkan port untuk MySQL
+$servername = 'db'; // gunakan nama service database dari docker-compose
+$username = 'root';
+$password = 'root'; // sesuai docker-compose
+$dbname = 'gojo_db';
 
-$koneksi = new mysqli($servername, $username, $password, $dbname, $port);
+$koneksi = new mysqli($servername, $username, $password, $dbname);
 
 if ($koneksi->connect_error) {
     die("Koneksi gagal: " . $koneksi->connect_error);

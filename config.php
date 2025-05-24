@@ -1,8 +1,8 @@
 <?php
-$servername = getenv('DB_HOST') ?: 'db';
+$servername = getenv('DB_HOST') ?: 'db';    // nama service db di docker-compose
 $username = getenv('DB_USER') ?: 'root';
 $password = getenv('DB_PASSWORD') ?: 'root';
-$dbname = getenv('DB_NAME') ?: 'gojo_db';
+$dbname   = getenv('DB_NAME') ?: 'gojo_db';
 
 $koneksi = new mysqli($servername, $username, $password, $dbname);
 

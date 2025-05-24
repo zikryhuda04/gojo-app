@@ -1,0 +1,17 @@
+image: docker:20.10.16
+
+pipelines:
+  default:
+    - step:
+        name: Build and Push Docker Image
+        services:
+          - docker
+        script:
+          - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+          - docker build -t jiklii/gojo-app .
+          - docker push jiklii/gojo-app
+
+definitions:
+  services:
+    docker:
+      memory: 1024

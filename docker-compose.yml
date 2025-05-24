@@ -4,7 +4,7 @@ services:
   web:
     image: jiklii/gojo-app:latest
     ports:
-  - "8081:8080"
+      - "8080:80"  
 
     depends_on:
       - db

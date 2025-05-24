@@ -4,9 +4,9 @@ $username = getenv('DB_USER') ?: 'root';
 $password = getenv('DB_PASSWORD') ?: '';
 $dbname = getenv('DB_NAME') ?: 'gojo_db';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$koneksi = new mysqli($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($koneksi->connect_error) {
+    die("Koneksi gagal: " . $koneksi->connect_error);
 }
 ?>

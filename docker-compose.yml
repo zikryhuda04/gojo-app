@@ -4,7 +4,7 @@ services:
   web:
     build: .
     ports:
-      - "8080:80"               # Port 8080 di host diarahkan ke port 80 di container web
+      - "8081:80"               # Port 8080 di host diarahkan ke port 80 di container web
     volumes:
       - .:/var/www/html         # Mount folder kerja ke dalam container agar live update
     depends_on:

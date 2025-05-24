@@ -3,8 +3,16 @@ version: '3.8'
 services:
   web:
     image: jiklii/gojo-app:latest
+    services:
+  web:
+    build: .
     ports:
-      - "8080:80"  
+      - "8082:80"  # ganti 8080 ke 8082
+  db:
+    image: mysql:5.7
+    ports:
+      - "3308:3306"  # ganti 3306 ke 3308
+
 
     depends_on:
       - db
